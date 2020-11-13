@@ -1,0 +1,40 @@
+$color2: #d1db8c;
+$color1:#496691;
+
+.header {
+    width: 110%;
+    background-color: #24558c;
+    height: 100px;
+    overflow: hidden;
+    margin: -10px -20px 0 -20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    .logo {
+        margin-left: 300px;
+        color: #8a1540;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .count {
+        margin: 70px 0 0 550px
+    }
+    .menu {
+        display: flex;
+        margin-left: 360px;
+        .menuItem {
+            margin-left: 20px;
+            height: 100px;
+            margin-top: 60px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            &:hover {
+                color: $color2;
+            }
+        }
+    }
+}

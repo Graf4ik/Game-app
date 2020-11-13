@@ -1,0 +1,52 @@
+<div class="categories">
+  <div class="categoriesItem">
+    <img src="../assets/img/all.png">
+    <a href="">All Games</a></div>
+  <div class="categoriesItem">
+    <img src="../assets/img/popular.png">
+    <a href="">Popular</a>
+  </div>
+  <div class="categoriesItem">
+    <img src="../assets/img/slots.png">
+    <a href="">Slots</a>
+  </div>
+  <div class="categoriesItem">
+    <img src="../assets/img/jackpots.png">
+    <a href="">Jackpots</a>
+  </div>
+  <div class="categoriesItem">
+    <img src="../assets/img/table.png">
+    <a href="">Table Games</a>
+  </div>
+  <div class="categoriesItem">
+    <img src="../assets/img/video.png">
+    <a href="">Video Poker</a>
+  </div>
+  <div class="categoriesItem">
+    <img src="../assets/img/other.png">
+    <a href="">Other</a>
+  </div>
+</div>
+<div class="input-field">
+  <input placeholder="Search for games" id="searchGames" type="text" class="input" [(ngModel)]="searchStr">
+  <label for="searchGames"></label>
+  <div class="sortBy">
+    <div class="sortByTitle">Sort: </div>
+    <button class="sortByItem" (click)="sortType('name')"><a href="#" class="sortByBtn">Name</a></button>
+    <button class="sortByItem" (click)="sortType('order2')"><a href="#" class="sortByBtn">LaunchCode</a></button>
+  </div>
+  <div class="countBlock">
+    <label for="editCount">Игр на текущей странице:</label>
+    <input placeholder="" id="editCount" type="text" class="inputCount" [(ngModel)]="size">
+    <div>
+      Количество игр: {{ games.length }}
+    </div>
+  </div>
+  
+</div>
+
+<div class="wrapper">
+  <app-game *ngFor="let game of games | orderBy: '-name': reverse | search:searchStr | paginate: { id: 'pagination', itemsPerPage: this.size, currentPage: page, 
+      totalItems: totalRecords }" [game]="game"></app-game>
+</div>
+<pagination-controls class="pagination" id="pagination" (pageChange)="page = $event"></pagination-controls>
